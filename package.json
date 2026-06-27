@@ -1,0 +1,13 @@
+{
+  "name": "the-playbook",
+  "version": "1.0.0",
+  "description": "An agentic, AI-first strategy playbook — ask it anything.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "node server.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.69.0"
+  }
+}
