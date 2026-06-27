@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Playbook</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Escrow (headings) -> Playfair Display | Exchange (body) -> Source Serif 4 -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      /* Minimal Wall Street Journal palette */
+      --bg: #ffffff;
+      --paper: #f8f7f4;      /* warm newsprint tint */
+      --border: #e3e1db;     /* hairline rules */
+      --rule: #111111;       /* heavy black rule */
+      --text: #111111;       /* near-black ink */
+      --body: #2b2b2b;       /* body ink */
+      --muted: #6b6b6b;      /* secondary gray */
+      --max: 1080px;
+      /* Escrow alternative for headings */
+      --font-head: "Playfair Display", "Escrow", Georgia, "Times New Roman", serif;
+      /* Exchange alternative for body */
+      --font-body: "Source Serif 4", "Exchange", Georgia, "Times New Roman", serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--body);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .wrap { position: relative; z-index: 1; max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+    /* Section kicker — small-caps label with a hairline above */
+    .kicker {
+      font-family: var(--font-body);
+      font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--muted); font-weight: 600;
+    }
+
+    /* Nav — black masthead rule */
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: inset 0 3px 0 var(--rule);
+    }
+    nav .wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; padding-top: 16px; padding-bottom: 14px; }
+    .brand {
+      font-family: var(--font-head); font-weight: 700; letter-spacing: 0; font-size: 26px; color: var(--text);
+    }
+    .brand b { font-weight: 700; }
+    .navlinks { display: flex; gap: 30px; justify-content: center; padding-top: 12px; border-top: 1px solid var(--border); width: 100%; }
+    .navlinks a {
+      color: var(--text); text-decoration: none; font-size: 12px; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase; transition: color .2s;
+    }
+    .navlinks a:hover { color: var(--muted); }
+    @media (max-width: 720px) { .navlinks { display: none; } }
+
+    /* Hero */
+    header { padding: 110px 0 96px; text-align: center; border-bottom: 1px solid var(--border); }
+    .eyebrow {
+      display: inline-block; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--muted); font-weight: 600; margin-bottom: 30px;
+      padding-bottom: 14px; position: relative;
+    }
+    .eyebrow::after {
+      content: ""; position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
+      width: 48px; height: 2px; background: var(--rule);
+    }
+    h1 {
+      font-family: var(--font-head);
+      font-size: clamp(42px, 8vw, 88px); line-height: 1.03; font-weight: 700;
+      letter-spacing: -0.01em; color: var(--text);
+    }
+    header p { max-width: 620px; margin: 26px auto 40px; color: var(--muted); font-size: 19px; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--text); color: #fff; font-weight: 600; font-size: 13px;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 15px 28px; border-radius: 2px; text-decoration: none;
+      transition: background .2s;
+    }
+    .btn:hover { background: #3a3a3a; }
+    .btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--rule); }
+    .btn.ghost:hover { background: var(--paper); }
+
+    /* Intro */
+    .intro { padding: 72px 0; border-bottom: 1px solid var(--border); }
+    .intro h2 { font-family: var(--font-head); font-size: clamp(28px, 4vw, 42px); letter-spacing: -0.01em; color: var(--text); margin-bottom: 20px; }
+    .intro p { color: var(--body); font-size: 19px; max-width: 760px; }
+
+    /* Sections — newspaper article stack separated by hairlines */
+    .sections { padding: 0; display: grid; }
+    .card {
+      position: relative; border-bottom: 1px solid var(--border);
+      background: transparent; padding: 56px 0;
+      opacity: 0; transform: translateY(18px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .card.in { opacity: 1; transform: none; }
+    .card .num {
+      font-family: var(--font-head); font-size: 15px; color: var(--muted);
+      letter-spacing: 0.08em; font-weight: 700;
+    }
+    .card h3 { font-family: var(--font-head); font-size: clamp(26px, 3.5vw, 38px); letter-spacing: -0.01em; color: var(--text); margin: 8px 0 6px; line-height: 1.12; }
+    .card .sub { color: var(--muted); font-size: 17px; font-style: italic; margin-bottom: 20px; }
+    .card .body { color: var(--body); font-size: 18px; margin-bottom: 28px; max-width: 780px; }
+    .points { list-style: none; display: grid; gap: 14px; }
+    @media (min-width: 760px) { .points { grid-template-columns: 1fr 1fr; gap: 16px 40px; } }
+    .points li {
+      position: relative; padding-left: 22px; color: var(--body); font-size: 16px; line-height: 1.5;
+    }
+    .points li::before {
+      content: ""; position: absolute; left: 0; top: 10px; width: 7px; height: 7px;
+      background: var(--rule);
+    }
+
+    /* CTA */
+    .cta { padding: 96px 0; text-align: center; background: var(--paper); border-bottom: 1px solid var(--border); margin-top: 16px; }
+    .cta h2 { font-family: var(--font-head); font-size: clamp(32px, 5vw, 56px); letter-spacing: -0.01em; color: var(--text); margin-bottom: 18px; }
+    .cta p { color: var(--muted); font-size: 19px; max-width: 560px; margin: 0 auto 34px; }
+
+    /* Footer */
+    footer { padding: 40px 0; box-shadow: inset 0 2px 0 var(--rule); }
+    footer .wrap { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    footer .tag { color: var(--muted); font-size: 14px; font-style: italic; }
+    footer .links { display: flex; gap: 26px; }
+    footer .links a {
+      color: var(--text); text-decoration: none; font-size: 12px; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase; transition: color .2s;
+    }
+    footer .links a:hover { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap">
+      <div class="brand">The <b>Playbook</b></div>
+      <div class="navlinks" id="navlinks"></div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <header>
+      <span class="eyebrow" id="tagline"></span>
+      <h1 id="hero-heading"></h1>
+      <p id="hero-sub"></p>
+      <a class="btn" href="#opportunity" id="hero-cta"></a>
+    </header>
+
+    <section class="intro">
+      <h2 id="intro-heading"></h2>
+      <p id="intro-body"></p>
+    </section>
+
+    <div class="sections" id="sections"></div>
+
+    <section class="cta">
+      <h2 id="cta-heading"></h2>
+      <p id="cta-body"></p>
+      <a class="btn" href="#hero" id="cta-btn"></a>
+    </section>
+  </div>
+
+  <footer>
+    <div class="wrap">
+      <div class="tag" id="footer-tag"></div>
+      <div class="links" id="footer-links"></div>
+    </div>
+  </footer>
+
+  <script>
+    async function render() {
+      const data = await fetch('content.json').then(r => r.json());
+
+      document.title = data.meta.title;
+      document.getElementById('tagline').textContent = data.meta.tagline;
+      document.getElementById('hero-heading').textContent = data.hero.heading;
+      document.getElementById('hero-sub').textContent = data.hero.subheading;
+      document.getElementById('hero-cta').textContent = data.hero.cta + ' →';
+
+      document.getElementById('intro-heading').textContent = data.introduction.heading;
+      document.getElementById('intro-body').textContent = data.introduction.body;
+
+      const sections = document.getElementById('sections');
+      data.sections.forEach((s, i) => {
+        const card = document.createElement('section');
+        card.className = 'card';
+        card.id = s.id;
+        card.innerHTML = `
+          <div class="num">${String(i + 1).padStart(2, '0')}</div>
+          <h3>${s.heading}</h3>
+          <div class="sub">${s.subheading}</div>
+          <p class="body">${s.body}</p>
+          <ul class="points">${s.points.map(p => `<li>${p}</li>`).join('')}</ul>
+        `;
+        sections.appendChild(card);
+      });
+
+      document.getElementById('cta-heading').textContent = data.cta.heading;
+      document.getElementById('cta-body').textContent = data.cta.body;
+      document.getElementById('cta-btn').textContent = data.cta.buttonLabel + ' →';
+
+      document.getElementById('footer-tag').textContent = data.footer.tagline;
+      const links = document.getElementById('footer-links');
+      const navlinks = document.getElementById('navlinks');
+      data.footer.links.forEach(l => {
+        links.insertAdjacentHTML('beforeend', `<a href="${l.href}">${l.label}</a>`);
+        navlinks.insertAdjacentHTML('beforeend', `<a href="${l.href}">${l.label}</a>`);
+      });
+
+      // Scroll-reveal
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold: 0.15 });
+      document.querySelectorAll('.card').forEach(c => io.observe(c));
+    }
+    render();
+  </script>
+</body>
+</html>
