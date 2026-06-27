@@ -1,0 +1,104 @@
+{
+  "meta": {
+    "title": "The Playbook",
+    "tagline": "A strategic guide to capturing new business streams and outpacing the competition.",
+    "version": "1.0"
+  },
+  "hero": {
+    "heading": "Build Your Edge.",
+    "subheading": "A battle-tested playbook for identifying new revenue streams and moving faster than the market.",
+    "cta": "Explore the Playbook"
+  },
+  "introduction": {
+    "heading": "What Is This Playbook?",
+    "body": "This playbook is a living strategic document designed to help you spot untapped business opportunities, build a defensible competitive position, and execute with clarity. Whether you're entering a new market or doubling down on an existing one, every section gives you the frameworks and language to move with confidence."
+  },
+  "sections": [
+    {
+      "id": "opportunity",
+      "heading": "Identifying New Business Streams",
+      "subheading": "Where is the next opportunity hiding?",
+      "body": "Growth doesn't come from doing the same things harder — it comes from seeing what others miss. New business streams emerge at the edges: underserved segments, adjacencies to your core, emerging behaviors, and gaps left by slow incumbents.",
+      "points": [
+        "Map adjacencies — what can you offer that your current customers already trust you for?",
+        "Follow friction — where do customers struggle most, and who isn't solving it?",
+        "Watch the edges — early adopters and niche markets signal where the mainstream will go.",
+        "Audit your assets — proprietary data, relationships, or infrastructure others can't easily replicate."
+      ]
+    },
+    {
+      "id": "advantage",
+      "heading": "Building a Competitive Advantage",
+      "subheading": "How do you stay ahead once you're there?",
+      "body": "Getting in first is a start — staying ahead is the real game. Durable advantages are built on things that compound: brand trust, network effects, proprietary insight, or operational excellence that's hard to copy.",
+      "points": [
+        "Define your moat — what makes your position genuinely hard to replicate?",
+        "Compound your strengths — invest in what makes you different, not just what makes you competitive.",
+        "Move on insight, not just data — the companies that win are the ones who interpret signals faster.",
+        "Lock in relationships — partnerships, contracts, and integrations that raise the cost of switching."
+      ]
+    },
+    {
+      "id": "strategy",
+      "heading": "Go-to-Market Strategy",
+      "subheading": "How do you enter and dominate a market?",
+      "body": "A strong strategy is specific. Vague ambitions don't win markets — sharp positioning, a clear beachhead, and a sequenced plan do.",
+      "points": [
+        "Pick a beachhead — own one segment completely before expanding.",
+        "Position ruthlessly — be the obvious choice for someone, not a decent choice for everyone.",
+        "Sequence your moves — what needs to be true before you take the next step?",
+        "Know your competition's blind spots — what assumptions are they making that you can exploit?"
+      ]
+    },
+    {
+      "id": "execution",
+      "heading": "Execution Principles",
+      "subheading": "Ideas are common. Execution is rare.",
+      "body": "The difference between a plan and a result is execution discipline. Speed, accountability, and honest feedback loops separate teams that move from teams that drift.",
+      "points": [
+        "Set clear ownership — every initiative has one name attached to it.",
+        "Prioritize ruthlessly — say no to good ideas so you can say yes to great ones.",
+        "Build in feedback loops — weekly check-ins, clear metrics, and honest retrospectives.",
+        "Celebrate speed — reward fast learning, not just fast wins."
+      ]
+    },
+    {
+      "id": "metrics",
+      "heading": "Measuring Success",
+      "subheading": "What does winning actually look like?",
+      "body": "Every play in this playbook should be tied to a measurable outcome. If you can't measure it, you can't improve it — and you can't know when you've won.",
+      "points": [
+        "Define lead indicators — what signals tell you you're on track before results arrive?",
+        "Track competitive benchmarks — are you closing the gap or widening it?",
+        "Review quarterly — strategies that made sense six months ago may need to evolve.",
+        "Tie every initiative to a number — revenue, retention, reach, or margin."
+      ]
+    },
+    {
+      "id": "mindset",
+      "heading": "The Winning Mindset",
+      "subheading": "How the best teams think.",
+      "body": "Strategy and execution matter — but so does the culture behind them. The teams that consistently win operate with a shared set of beliefs that keep them sharp, honest, and hungry.",
+      "points": [
+        "Assume the market will change — and build the habit of adapting early.",
+        "Debate ideas, not people — the best decision wins, regardless of who proposed it.",
+        "Stay paranoid about complacency — the moment you think you've figured it out, someone is coming for you.",
+        "Play to win, not to not lose — bold bets on the right opportunities beat cautious execution every time."
+      ]
+    }
+  ],
+  "cta": {
+    "heading": "Ready to Make Your Move?",
+    "body": "A playbook is only as good as the team running it. Pick your first play, assign ownership, and start moving.",
+    "buttonLabel": "Get Started"
+  },
+  "footer": {
+    "tagline": "The Playbook — Strategy for those who move first.",
+    "links": [
+      { "label": "Overview", "href": "#hero" },
+      { "label": "Opportunities", "href": "#opportunity" },
+      { "label": "Advantage", "href": "#advantage" },
+      { "label": "Execution", "href": "#execution" }
+    ]
+  }
+}
