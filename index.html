@@ -57,15 +57,15 @@
 
     /* Masthead — black top rule, hairline beneath */
     .topbar {
-      display: flex; align-items: center; justify-content: space-between;
+      position: relative;
+      display: flex; align-items: center; justify-content: flex-end;
       padding: 0 22px; height: 62px; flex: 0 0 auto;
       background: rgba(255,255,255,.82); backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border); box-shadow: inset 0 3px 0 var(--rule);
+      box-shadow: inset 0 3px 0 var(--rule);
     }
-    .brand { display: flex; align-items: center; gap: 11px; font-family: var(--font-head); font-weight: 700; font-size: 21px; color: var(--text); }
-    .brand .mark {
-      width: 27px; height: 27px; border-radius: 6px; display: inline-grid; place-items: center;
-      background: var(--rule); color: #fff; font-family: var(--font-head); font-weight: 700; font-size: 15px;
+    .brand {
+      position: absolute; left: 50%; transform: translateX(-50%);
+      display: flex; align-items: center; font-family: var(--font-head); font-weight: 700; font-size: 21px; color: var(--text);
     }
     .newchat {
       display: inline-flex; align-items: center; gap: 7px; cursor: pointer;
@@ -92,7 +92,7 @@
     .chip:hover { border-color: var(--rule); background: #fff; transform: translateY(-1px); }
 
     body.chatting .welcome { display: none; }
-    .welcome #center-mount { margin-top: 8px; }
+    .welcome #center-mount { margin-top: 36px; }
 
     /* Thread */
     .thread { display: flex; flex-direction: column; gap: 28px; padding: 22px 0 26px; }
@@ -143,20 +143,23 @@
     body:not(.chatting) .dock { display: none; }
     .composer-block { max-width: 720px; width: 100%; margin: 0 auto; }
     .composer {
-      display: flex; align-items: flex-end; gap: 10px;
-      background: var(--surface); border: 1px solid var(--border-strong); border-radius: 18px;
-      padding: 8px 8px 8px 20px; box-shadow: var(--shadow);
+      display: flex; flex-direction: column; gap: 8px;
+      background: var(--surface); border: 1px solid var(--border-strong); border-radius: 22px;
+      padding: 16px 16px 12px; box-shadow: var(--shadow);
       transition: box-shadow .25s, border-color .25s;
     }
     .composer:focus-within { border-color: var(--rule); box-shadow: 0 0 0 3px var(--ink-soft), 0 16px 44px rgba(17,17,17,.10); }
     .composer textarea {
-      flex: 1; border: none; outline: none; resize: none; background: transparent;
-      font-family: var(--font-body); font-size: 16.5px; color: var(--text); line-height: 1.5;
-      padding: 9px 0; max-height: 184px;
+      width: 100%; border: none; outline: none; resize: none; background: transparent;
+      font-family: var(--font-body); font-size: 16.5px; color: var(--text); line-height: 1.55;
+      padding: 2px 4px; min-height: 26px; max-height: 184px;
     }
     .composer textarea::placeholder { color: #9d9c97; }
+    .composer-bar { display: flex; align-items: center; justify-content: space-between; padding: 0 2px; }
+    .composer-mode { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+    .composer-mode .spark { width: 19px; height: 19px; border-radius: 5px; display: inline-grid; place-items: center; background: var(--rule); color: #fff; font-size: 11px; }
     .send {
-      flex: 0 0 auto; width: 40px; height: 40px; border: none; border-radius: 50%; cursor: pointer;
+      flex: 0 0 auto; width: 38px; height: 38px; border: none; border-radius: 50%; cursor: pointer;
       display: grid; place-items: center; color: #fff; background: var(--rule);
       transition: transform .15s, opacity .2s, background .2s;
     }
@@ -177,23 +180,24 @@
 
   <div class="app">
     <div class="topbar">
-      <div class="brand"><span class="mark">P</span> The Playbook</div>
+      <div class="brand">The Playbook</div>
       <button class="newchat" id="newchat" type="button">＋ New chat</button>
     </div>
 
     <div class="stage" id="stage">
       <div class="stage-inner">
         <div class="welcome" id="welcome">
-          <span class="kicker"><span class="dot"></span> AI Strategy Advisor</span>
           <h1>What's your <span class="em">next move?</span></h1>
-          <p>Ask anything about new business streams, competitive moats, or go-to-market. Grounded in the playbook — and the live web.</p>
           <div id="center-mount">
             <div class="composer-block" id="composer-block">
               <form class="composer" id="composer" autocomplete="off">
-                <textarea id="input" rows="1" placeholder="Ask the Playbook anything…"></textarea>
-                <button class="send" id="send" type="submit" aria-label="Send">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
-                </button>
+                <textarea id="input" rows="1" placeholder="How can I help with your next move?"></textarea>
+                <div class="composer-bar">
+                  <span class="composer-mode"><span class="spark">✦</span> Strategy advisor</span>
+                  <button class="send" id="send" type="submit" aria-label="Send">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+                  </button>
+                </div>
               </form>
               <div class="disclaimer">The Playbook is AI-generated guidance and can make mistakes — verify anything important.</div>
             </div>
